@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ post.title }}</title>
+  </head>
+  <body>
+    <a href="{% url 'post_list' %}">← Back to All Posts</a>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.body }}</p>
+    <hr />
+    <h2>Comments</h2>
+    <ul>
+      {% for comment in comments %}
+      <li>
+        <p><strong>{{ comment.name }}</strong> ({{ comment.email }})</p>
+        <p>{{ comment.body }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
